@@ -737,13 +737,14 @@ const CONFIG = {
         name="entry.NNNNNNN". Paste those ids here.
      Leave actionUrl null and the form still works locally for testing. */
   form: {
-    actionUrl: null,   // "https://docs.google.com/forms/d/e/FORM_ID/formResponse"
+    actionUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfIWUXZD0nQxkcoX_6eIZperJ8i-sXCDquV--FVa5nyDieHIw/formResponse",
     fields: {
-      guests:  "entry.0000000001",   // long answer: all names + dietaries
-      email:   "entry.0000000002",   // short answer
-      att:     "entry.0000000003",   // multiple choice, must match the labels
-      bus:     "entry.0000000004",   // multiple choice: Yes / No
-      addr:    "entry.0000000005",   // short answer: shuttle drop-off address
+      guests:  "entry.2058693480",   // long answer: all names + dietaries
+      email:   "entry.1970462810",   // short answer
+      att:     "entry.816342003",    // multiple choice, must match the labels
+      bus:     "entry.2044532548",   // multiple choice: Yes / No
+      addr:    "entry.779530682",    // short answer: shuttle drop-off address
+      count:   "entry.1355186755",   // short answer: number of guests coming
     },
   },
 };
@@ -1347,6 +1348,7 @@ const CAL = (() => {
       att: att.value,
       bus: coming && bus ? bus.value : "",
       addr: coming && bus && bus.value === "Yes" ? $("#rAddr").value.trim() : "",
+      count: coming ? String(list.length) : "",
     };
 
     /* Google Forms accepts a plain POST; no-cors means we can't read the
